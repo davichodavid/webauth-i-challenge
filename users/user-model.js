@@ -1,13 +1,17 @@
 const database = require("../data/databaseConfig");
 
 module.exports = {
-  register,
-  login,
+  add,
+  findById,
   find
 };
 
 function find() {
   return database("users").select("id", "username", "password");
+}
+
+function findBy(filter) {
+  return database("users").where(filter);
 }
 
 function add(user) {
